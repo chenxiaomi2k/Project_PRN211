@@ -1,7 +1,7 @@
 # Project_PRN211
 
-#Created and developed by Tran Long Hai - 1 March, 2023
-#Finished on 26 March 2023 and reviewed on 27 March, 2023
+Created and developed by Tran Long Hai - 1 March, 2023.
+Finished on 26 March 2023 and reviewed on 27 March, 2023.
 
 - This project using .NET 6.
 - This project includes both windows form application and web form application (ASP.NET Core).
