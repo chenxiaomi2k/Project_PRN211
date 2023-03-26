@@ -1,0 +1,84 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.logo{
+    max-width: 100px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+/*------------- Style pagination -------------*/
+
+.shop-pagination {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: 20px;
+    text-align: right;
+}
+
+    .shop-pagination ul {
+        position: relative;
+        width: 100%;
+    }
+
+    .shop-pagination li {
+        position: relative;
+        display: inline-block;
+        margin: 0 8px 8px;
+        vertical-align: top;
+    }
+
+        .shop-pagination li a {
+            position: relative;
+            display: block;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 38px;
+            font-weight: 400;
+            font-size: 14px;
+            background: #ffffff;
+            color: #222222;
+            border: 1px solid #bbbbbb;
+            border-radius: 3px;
+            -webkit-transition: all 300ms ease;
+            -ms-transition: all 300ms ease;
+            -o-transition: all 300ms ease;
+            -moz-transition: all 300ms ease;
+            transition: all 300ms ease;
+        }
+
+        .shop-pagination li.next a,
+        .shop-pagination li.prev a {
+            background-color: #222222;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .shop-pagination li a:hover,
+        .shop-pagination li.active a {
+            color: #ffffff;
+            background: #dfb162;
+            border-color: #dfb162;
+        }
+
+    .shop-pagination.style-two li a {
+        border-radius: 50%;
+    }

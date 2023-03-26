@@ -1,0 +1,31 @@
+﻿
+@model PasswordLibrary.DataAccess.User
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <h2 style="color:blueviolet; text-align:center">Login</h2>
+            <hr />
+            <form asp-controller="User", asp-action="Login" method="post">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="Username"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="Password"/>
+                </div>
+
+                <br />
+                <button type="submit" class="btn btn-outline-info">Login</button>
+                <button type="submit" class="btn btn-outline-secondary" formaction="/User/RegisterIndex">Register</button>
+            </form>
+            <h6 style="color: red">@ViewBag.mess</h6>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

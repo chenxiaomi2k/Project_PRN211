@@ -1,0 +1,94 @@
+﻿@model IEnumerable<PasswordLibrary.DataAccess.Password>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1 style="text-align:center">List saved Passwords of @ViewBag.user.Username</h1>
+<br />
+<div class="search-bar" style="width:300px">
+    <form asp-controller="Password" asp-action="Search" asp-route-uid="@ViewBag.user.Id" method="post">
+        <div class="input-group">
+            <input type="text" name="websearch" class="form-control" placeholder="Website name" value="@ViewBag.search">
+            <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+</div>
+
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                Saved Password
+            </th>
+            <th>
+                <form asp-controller="Password" asp-action="Filter" asp-route-uid="@ViewBag.user.Id" asp-route-inx="1">
+                    <select name="cate" onchange="this.form.submit()">
+                        <!option value="all" @(ViewBag.filter == "All Passwords" ? "selected" : "null")>All Passwords</!option>
+                        <!option value="Work Password" @(ViewBag.filter == "Work Password" ? "selected" : "null")>Work Password</!option>
+                        <!option value="Personal Password" @(ViewBag.filter == "Personal Password" ? "selected" : "null")>Personal Password</!option>
+                    </select>
+                </form>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Website)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SavedPassword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" asp-route-uid="@ViewBag.user.Id" style="text-decoration-line:none; color: darkorchid">
+                        <i class="fa-regular fa-pen-to-square fa-lg"></i>
+                    </a>
+                    |
+                    <a asp-action="Delete" asp-route-id="@item.Id" asp-route-uid="@ViewBag.user.Id" style="text-decoration-line:none; color: red">
+                        <i class="fa-regular fa-trash-can fa-lg"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div style="display: flex; justify-content: space-between;">
+    <a asp-action="Create" asp-route-uid="@ViewBag.user.Id" style="text-decoration-line:none; color: orange">
+        <i class="fa-solid fa-circle-plus fa-2x"></i>
+    </a>
+</div>
+<div class="shop-pagination">
+    <ul class="clearfix">
+        <li class="prev"><a asp-controller="Password" asp-route-inx=@ViewData["prev"]><i class="fa fa-angle-left"></i></a></li>
+        @for (var i = 1; i <= ViewBag.pageSize; i++)
+        {
+            <li class="page-item @(ViewBag.index == i ? "active" : "null")">
+                <a style="text-decoration-line:none" asp-controller="Password" asp-route-inx=@i>@i</a>
+            </li>
+        }
+        <li class="next"><a asp-controller="Password" asp-action="Index" asp-route-inx=@ViewData["next"]><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+</div>
