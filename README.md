@@ -8,5 +8,6 @@ Finished on 26 March 2023 and reviewed on 27 March, 2023.
 - This project includes both windows form application and web form application (ASP.NET Core).
 - Both use Entity Framework Core to interact with database (Microsoft SQL Server).
 - Feel free to download and modify if interested.
+- Project này được 8.5 thầy LongDT12
 
 P/S: This project took about 2 weeks and a half to finish, but I became easily distracted and procrastinated during the process.
